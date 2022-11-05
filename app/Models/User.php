@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Post;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,4 +43,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    
+    //eloquent relationship...
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
