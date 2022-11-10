@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
+        
 
 
        
