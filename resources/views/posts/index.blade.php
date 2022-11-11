@@ -1,5 +1,5 @@
 <x-layout>
-    @include('_posts-header')
+    @include('posts._header')
 
     <main class="max-w-7xl mx-auto mt-6 lg:mt-20 space-y-6">
         @if($posts->count())
@@ -10,4 +10,4 @@
         @endif
     </main>
 
-</x-layout>
+</x-layout> 
