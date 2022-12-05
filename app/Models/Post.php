@@ -12,7 +12,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $guarded = []; //mass assignment
+   
 
     protected $with = ['category', 'author'];
 
@@ -46,5 +46,11 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    
+    // eloquent relationship for a comment
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
