@@ -1,11 +1,13 @@
 <!doctype html>
 
-<title>Laravel From Scratch Blog</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<head>
+    <title>GistArena</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-<script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+</head>
 
 <body style="font-family: Open Sans, sans-serif">
     <section class="px-6 py-8">
@@ -16,8 +18,19 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0">
-                <a href="/" class="text-xs font-bold uppercase">Home Page</a>
+            <div class="mt-8 md:mt-0 flex items-center">
+                @auth
+                <span class="text-xs font-bold uppercase">Welcome,</span><span
+                    class="text-xs font-bold uppercase text-blue-900 pl-2">{{auth()->user()->name}}!</span>
+
+                <form action="/logout" method="POST" class="text-xs font-semibold text-blue-400 ml-6">
+                    @csrf
+                    <button type="submit">Log Out</button>
+                </form>
+                @else
+                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
+                @endauth
 
                 <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
@@ -54,4 +67,5 @@
             </div>
         </footer>
     </section>
+    <x-flash />
 </body>

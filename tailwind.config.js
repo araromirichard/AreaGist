@@ -8,9 +8,5 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: [
-        //register plugin for pagination
-        require('tailwindcss-plugins/pagination'), ,
-
-    ],
+    plugins: [],
 }
